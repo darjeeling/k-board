@@ -28,6 +28,7 @@ class Post(models.Model):
 class SummerNote(summer_model.Attachment):
     summer_field = summer_fields.SummernoteTextField(default='')
 
+
 class Comment(models.Model):
     content = models.TextField(default='')
     post = models.ForeignKey(Post, null=True)
