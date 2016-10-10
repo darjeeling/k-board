@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from board.models import Post, Board
+from board.models import Post, Board, Comment
 from board.forms import PostForm
 
 
@@ -34,9 +34,9 @@ def post_list(request, board_id):
 
 
 def view_post(request, post_id):
-    post_ = Post.objects.get(id=post_id)
+    post = Post.objects.get(id=post_id)
 
-    return render(request, 'view_post.html', {'post': post_, 'board_id': request.GET['board']})
+    return render(request, 'view_post.html', {'post': post, 'board_id': post.board.id})
 
 
 def board_list(request):
@@ -47,3 +47,10 @@ def board_list(request):
     boards = Board.objects.all()
 
     return render(request, 'board_list.html', {'boards': boards})
+
+
+def new_comment(request):
+    if request.method == 'POST':
+        post = Post.objects.get(id=request.POST['post_id'])
+        Comment.objects.create(post=post, content=request.POST['comment_content'])
+        return redirect(post)
