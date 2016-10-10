@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from board.models import Post, Board, Comment
+<<<<<<< HEAD
 from board.forms import PostForm
+=======
+>>>>>>> d5749b5... Modify 'view_post' preparing to POST request
 
 
 def new_post(request):
