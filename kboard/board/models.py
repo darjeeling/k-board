@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Board(models.Model):
     name = models.TextField(default='')
 
