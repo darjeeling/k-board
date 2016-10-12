@@ -5,28 +5,6 @@ omit =
     *__init__*
     */migrations/*.py
     */test*.py
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     board/admin.py
     board/apps.py
     board/urls.py
-=======
->>>>>>> 99bb9a9... view basic pagination
-=======
-	board/admin.py
-	board/apps.py
-	board/urls.py
-
->>>>>>> 6ca3667... fix covergerc to cover well
-=======
-    board/admin.py
-    board/apps.py
-    board/urls.py
->>>>>>> e7a337b... fix indent
-=======
-    board/admin.py
-    board/apps.py
-    board/urls.py
->>>>>>> 495c9071d6989bcf5c24ac3df0af5dab0c7a3c48
