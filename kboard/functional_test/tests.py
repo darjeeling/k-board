@@ -176,8 +176,11 @@ class NewVisitorTest(StaticLiveServerTestCase):
             titlebox = self.browser.find_element_by_id('id_new_post_title')
             titlebox.send_keys('day ' + str(day))
 
-            contentbox = self.browser.find_element_by_id('id_new_post_content')
+            iframe = self.browser.find_elements_by_tag_name('iframe')[0]
+            self.browser.switch_to.frame(iframe)
+            contentbox = self.browser.find_element_by_xpath('//div[contains(@class, "note-editable")]')
             contentbox.send_keys('Hello')
+            self.browser.switch_to.default_content()
 
             submit_button = self.browser.find_element_by_css_selector('button[type="submit"]')
             submit_button.click()
