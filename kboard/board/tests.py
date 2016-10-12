@@ -26,10 +26,6 @@ class CreatePostPageTest(TestCase):
 
         expected_html = render_to_string('new_post.html', {'board': self.default_board})
         response_decoded = self.remove_csrf(response.content.decode())
-        # print(expected_html)
-        # print("********************************************\n")
-        # print(response_decoded)
-        # self.assertEqual(response_decoded, expected_html)
 
     def test_post_list_can_save_a_POST_request(self):
         request = HttpRequest()

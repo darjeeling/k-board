@@ -70,10 +70,9 @@ class NewVisitorTest(StaticLiveServerTestCase):
         iframe = self.browser.find_elements_by_tag_name('iframe')[0]
         self.browser.switch_to.frame(iframe)
         contentbox = self.browser.find_element_by_xpath('//div[contains(@class, "note-editable")]')
-        time.sleep(1)
+
         # "Content of This Post"라고 본문 상자에 입력한다.
         contentbox.send_keys('Content of This Post')
-        time.sleep(2)
         self.browser.switch_to.default_content()
 
         # 하단의 등록 버튼을 누르면 글 작성이 완료되고 게시글 목록으로 돌아간다.
