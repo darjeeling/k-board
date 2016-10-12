@@ -1,7 +1,7 @@
 from django.db import models
 from django_summernote import models as summer_model
 from django_summernote import fields as summer_fields
-
+from django.core.paginator import Paginator
 
 class Board(models.Model):
     name = models.TextField(default='')

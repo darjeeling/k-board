@@ -13,7 +13,7 @@ def new_post(request):
 def post_list(request, board_id):
     if request.method == 'POST':
         board = Board.objects.get(id=board_id)
-        Post.objects.create(board=board, title=request.POST['post_title_text'], content=request.POST['fields'])
+        Post.objects.create(board=board, title=request.POST['post_title_text'], content=request.POST.get("fields", ""))
         return redirect('/board/'+str(board_id))
 
     posts = Post.objects.all()
