@@ -6,8 +6,15 @@ omit =
     */migrations/*.py
     */test*.py
 <<<<<<< HEAD
+<<<<<<< HEAD
     board/admin.py
     board/apps.py
     board/urls.py
 =======
 >>>>>>> 99bb9a9... view basic pagination
+=======
+	board/admin.py
+	board/apps.py
+	board/urls.py
+
+>>>>>>> 6ca3667... fix covergerc to cover well
