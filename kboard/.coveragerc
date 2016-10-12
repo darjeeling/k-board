@@ -7,6 +7,7 @@ omit =
     */test*.py
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     board/admin.py
     board/apps.py
     board/urls.py
@@ -18,3 +19,8 @@ omit =
 	board/urls.py
 
 >>>>>>> 6ca3667... fix covergerc to cover well
+=======
+    board/admin.py
+    board/apps.py
+    board/urls.py
+>>>>>>> e7a337b... fix indent
