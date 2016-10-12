@@ -18,4 +18,5 @@ from django.conf.urls import url, include
 app_name = 'board'
 urlpatterns = [
     url(r'^', include('board.urls')),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
