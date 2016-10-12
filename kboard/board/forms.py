@@ -10,3 +10,7 @@ class PostForm(forms.ModelForm):
      class Meta:
            model = SummerNote
            fields = ('fields', )
+           widgets= {
+                'foo' : SummernoteWidget(),
+                'bar' : SummernoteInplaceWidget(),
+           }

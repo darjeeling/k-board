@@ -63,7 +63,7 @@ class NewVisitorTest(LiveServerTestCase):
             'Insert Title'
         )
 
-        contentbox = self.browser.find_element_by_id('id_new_post_content')
+        contentbox = self.browser.find_element_by_id('fields')
         self.assertEqual(
             contentbox.get_attribute('placeholder'),
             'Insert Content'
