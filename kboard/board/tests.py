@@ -6,6 +6,7 @@ import re
 
 from .views import new_post, post_list, view_post
 from .models import Post, Board
+from .forms import PostForm
 
 
 class CreatePostPageTest(TestCase):

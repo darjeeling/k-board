@@ -26,7 +26,6 @@ SECRET_KEY = 'fbk#a_$7&@566onvmd1xfxyszz)npb+d5gq#y9q(n0wg_k)v0x'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 
 # Application definition
 
@@ -122,3 +121,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, '../static')
+
+MEDIA_URL = '/media/'
+
+# CKEditor
+
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 700,
+        'width': 700,
+    },
+}
