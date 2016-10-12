@@ -168,7 +168,6 @@ class NewVisitorTest(StaticLiveServerTestCase):
         self.assertEqual(current_page_num, '1')
 
         # 11일 후 11개의 게시글이 추가됐다.
-
         for day in range(1, 12):
             create_post_button = self.browser.find_element_by_id('id_create_post_button')
             create_post_button.click()
@@ -201,13 +200,11 @@ class NewVisitorTest(StaticLiveServerTestCase):
 
         # 페이지 번호 2를 클릭하였더니 두 번째 페이지로 넘어간다.
         page_list[0].click()
-
         self.assertRegex(self.browser.current_url, '.+/board/(\d+)/\?page=2')
 
         # 게시글은 3개만 보여진다.
         table = self.browser.find_element_by_id('id_post_list_table')
         rows = table.find_elements_by_tag_name('tr')
-
         self.assertEqual(len(rows), 3)
 
         # 현재 페이지 번호는 2로 표시된다.

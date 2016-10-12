@@ -8,6 +8,7 @@ omit =
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     board/admin.py
     board/apps.py
     board/urls.py
@@ -24,3 +25,8 @@ omit =
     board/apps.py
     board/urls.py
 >>>>>>> e7a337b... fix indent
+=======
+    board/admin.py
+    board/apps.py
+    board/urls.py
+>>>>>>> 495c9071d6989bcf5c24ac3df0af5dab0c7a3c48
