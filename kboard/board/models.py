@@ -19,11 +19,6 @@ class Post(models.Model):
     content = models.TextField(default='')
     board = models.ForeignKey(Board, null=True)
 
-    class Meta:
-        index_together = [
-            ["title", "content"],
-        ]
-
 
 class SummerNote(summer_model.Attachment):
     summer_field = summer_fields.SummernoteTextField(default='')
