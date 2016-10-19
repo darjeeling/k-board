@@ -101,14 +101,14 @@ class NewVisitorTest(FunctionalTest):
         self.assertRegex(self.browser.current_url, '.+/default/')
 
         # 게시글 목록에 두 개의 게시글 제목이 보인다.
-        self.check_for_row_in_list_table('id_post_list_table', '2: Title of Second Post')
-        self.check_for_row_in_list_table('id_post_list_table', '1: Title of This Post')
+        self.check_for_row_in_list_table('id_post_list_table', 'Title of Second Post')
+        self.check_for_row_in_list_table('id_post_list_table', 'Title of This Post')
 
         # 지훈이는 게시글이 잘 작성 되었는지 확인하고 싶어졌다.
-        # '1: Title of This Post' 게시글을 클릭한다.
+        # 'Title of This Post' 게시글을 클릭한다.
         table = self.browser.find_element_by_id('id_post_list_table')
         rows = table.find_elements_by_tag_name('tr')
-        row = rows[0].find_element_by_tag_name('td')
+        row = rows[1].find_element_by_tag_name('td')
         row.find_element_by_tag_name('a').click()
 
         # 게시글에 대한 자세한 내용을 보여주는 새로운 창이 뜬다.
