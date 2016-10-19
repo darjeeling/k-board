@@ -3,6 +3,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse
 from django.views.decorators.http import require_POST
 
+from hitcount.models import HitCount
+from hitcount.views import HitCountMixin
+
 from board.models import Post, Board, Comment
 from board.forms import PostForm
 
@@ -61,6 +64,8 @@ def view_post(request, board_slug, post_id):
     comments_all_list = Comment.objects.filter(post=post).order_by('-pk')
 
     paginator = Paginator(comments_all_list, 5)  # Show 10 contacts per page
+    hit_count = HitCount.objects.get_for_object(post)
+    hit_count_response = HitCountMixin.hit_count(request, hit_count)
 
     page = request.GET.get('page')
     try:

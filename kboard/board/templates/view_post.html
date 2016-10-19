@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>View Post</title>
+    {% load hitcount_tags %}
 </head>
 <body>
     <!-- post -->
     <h2 id="id_post_title">{{ post.title }}</h2>
     <p>{{ post.create_time }}</p>
+    <p>Total hits: {%  get_hit_count for post %}</p>
 
     <div id="id_post_content">
         <p>{{ post.content|safe }}</p>
