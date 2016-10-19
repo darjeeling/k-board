@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'board',
     'django_summernote',
     'djangobower',
-    'pipeline'
+    'pipeline',
+    'hitcount',
 ]
 
 STATICFILES_FINDERS = [
