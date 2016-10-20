@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django_summernote import models as summer_model
 from django_summernote import fields as summer_fields
+from hitcount.models import HitCountMixin
 
 
 class Board(models.Model):
@@ -13,7 +14,7 @@ class Board(models.Model):
     name = models.TextField(default='')
 
 
-class Post(models.Model):
+class Post(models.Model, HitCountMixin):
     def get_absolute_url(self):
         return reverse('board:view_post', args=[self.board.slug, self.id])
 
