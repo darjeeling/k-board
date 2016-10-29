@@ -3,9 +3,13 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse
 from django.views.decorators.http import require_POST
 from django.db.models import F
+from django.db import transaction
+
+from registration.backends.hmac.views import RegistrationView
+from registration.backends.hmac.views import ActivationView
 
 from board.models import Post, Board, Comment
-from board.forms import PostForm
+from board.forms import PostForm, CustomizeRegistrationForm
 from core.utils import get_pages_nav_info
 
 
@@ -127,3 +131,35 @@ def delete_post(request, post_id):
         post.save(update_fields=['is_deleted'])
 
         return redirect(post.board)
+
+
+class CustomizeRegistrationView(RegistrationView):
+
+    form_class = CustomizeRegistrationForm
+
+    @transaction.atomic
+    def create_inactive_user(self, form):
+        new_user = form.save(commit=False)
+        new_user.is_active = False
+        new_user.save()
+
+        self.send_activation_email(new_user)
+
+        return new_user
+
+    def get_activation_key(self, user):
+        pass
+
+    def get_email_context(self, activation_key):
+        pass
+
+    def send_activation_email(self, user):
+        pass
+
+
+class CustomizeActivationView(ActivationView):
+    def get_user(self, username):
+        pass
+
+    def validate_key(self, activation_key):
+        pass
