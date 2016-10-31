@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from django.contrib.auth.hashers import make_password
 
 from registration.forms import RegistrationForm
 from django_summernote import fields as summer_fields
@@ -16,11 +17,12 @@ class PostForm(forms.ModelForm):
 
 
 class CustomRegistrationForm(forms.ModelForm):
-
+    error_messages = {
+        'password_mismatch': "The two password fields didn't match.",
+    }
     username = forms.CharField(
         label="ID"
     )
-
     password1 = forms.CharField(
         widget=forms.PasswordInput,
         label="Password"
@@ -33,5 +35,16 @@ class CustomRegistrationForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
         fields = ('username', 'password1', 'password2', 'full_name', 'email', )
+
+    def clean_password2(self):
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError(
+                self.error_messages['password_mismatch'],
+                code='password_mismatch',
+            )
+        return make_password(password2)
 
 RegistrationForm.base_fields.update(CustomRegistrationForm.base_fields)
