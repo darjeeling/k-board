@@ -182,6 +182,7 @@ MEDIA_URL = '/media/'
 # https://django-registration.readthedocs.io/en/2.1.2/index.html
 
 ACCOUNT_ACTIVATION_DAYS = 7
+AUTH_USER_MODEL = 'board.Registration'
 
 
 # Email Activation
