@@ -2,6 +2,8 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models import Q
 from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
+from django.conf import settings
 
 from django_summernote import fields as summer_fields
 from django_summernote import models as summer_model
@@ -78,7 +80,9 @@ class EditedPostHistory(TimeStampedModel):
     content = models.TextField(default='')
 
 class Registration(AbstractUser):
-    username = models.CharField(max_length=30, unique=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True)
+    username = models.CharField(max_length=30, unique=True, default='')
     password = models.CharField(max_length=100)
+    full_name = models.CharField(max_length=100, default='')
     email = models.EmailField(max_length=75)
     joined = models.DateTimeField(auto_now_add=True)

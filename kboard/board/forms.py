@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 
+from registration.forms import RegistrationForm
 from django_summernote import fields as summer_fields
 
 from .models import SummerNote
@@ -14,11 +15,23 @@ class PostForm(forms.ModelForm):
            fields = ('fields', )
 
 
-class RegistraionForm(forms.ModelForm):
+class CustomRegistrationForm(forms.ModelForm):
 
-    password1 = forms.CharField(widget=forms.PasswordInput)
-    password2 = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(
+        label="ID"
+    )
+
+    password1 = forms.CharField(
+        widget=forms.PasswordInput,
+        label="Password"
+    )
+    password2 = forms.CharField(
+        widget=forms.PasswordInput,
+        label="Password confirmation"
+    )
 
     class Meta:
         model = get_user_model()
-        fields = ('username', 'password1', 'password2', 'email', )
+        fields = ('username', 'password1', 'password2', 'full_name', 'email', )
+
+RegistrationForm.base_fields.update(CustomRegistrationForm.base_fields)
