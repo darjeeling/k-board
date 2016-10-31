@@ -80,7 +80,7 @@ class EditedPostHistory(TimeStampedModel):
     content = models.TextField(default='')
 
 class Registration(AbstractUser):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True)
     username = models.CharField(max_length=30, unique=True, default='')
     password = models.CharField(max_length=100)
     full_name = models.CharField(max_length=100, default='')
