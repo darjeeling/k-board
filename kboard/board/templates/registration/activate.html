@@ -1,0 +1,9 @@
+{% load i18n %}
+
+{% block content_title %}
+<p>{% trans "Account activation failed" %}</p>
+{% endblock %}
+
+{% block content %}
+  <p>The activation key "{{ activation_key }}" is invalid and cannot be used to activate this account.</p>
+{% endblock %}
