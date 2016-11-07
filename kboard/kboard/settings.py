@@ -134,7 +134,7 @@ PIPELINE = {
     'JAVASCRIPT': {
         'main': {
             'source_filenames': [
-              'js/*.js'
+              'js/**/*.js'
             ],
             'output_filename': 'js/vendor.js'
         },
@@ -142,7 +142,7 @@ PIPELINE = {
     'STYLESHEETS': {
         'main': {
             'source_filenames': [
-              'style/*.scss'
+              'style/**/*.scss'
             ],
             'output_filename': 'style/main.css'
         },
