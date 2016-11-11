@@ -10,6 +10,6 @@ urlpatterns = [
         RegistrationView.as_view(
             form_class=RegistrationForm
         ), name='registration_register'),
+    url(r'^profile/$', views.profile, name='profile'),
     url(r'^', include('registration.backends.hmac.urls')),
-    url(r'^terms/$', views.tns_page, name='tns_page'),
 ]
