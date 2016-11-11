@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from registration.forms import RegistrationFormUniqueEmail
 
+
 class RegistrationForm(RegistrationFormUniqueEmail):
     error_messages = {
         'email_mismatch': _('The two email fields didn\'t match.'),
