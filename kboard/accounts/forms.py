@@ -38,9 +38,3 @@ class RegistrationForm(RegistrationFormUniqueEmail):
                 code='password_mismatch',
             )
         return password2
-
-    def save(self, commit=True):
-        user = super(RegistrationFormUniqueEmail, self).save(commit=False)
-        if commit:
-            user.save()
-        return user
