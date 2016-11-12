@@ -6,7 +6,6 @@ from registration.forms import RegistrationFormUniqueEmail
 
 class RegistrationForm(RegistrationFormUniqueEmail):
     error_messages = {
-        'email_mismatch': _('The two email fields didn\'t match.'),
         'password_mismatch': _('The two password fields didn\'t match.'),
     }
 
@@ -21,8 +20,6 @@ class RegistrationForm(RegistrationFormUniqueEmail):
             self.fields['fullName'].widget.attrs.update({'placeholder': _(u'Your name')})
         if 'email' in self.fields:
             self.fields['email'].widget.attrs.update({'placeholder': _(u'Your email')})
-        if 'email2' in self.fields:
-            self.fields['email2'].widget.attrs.update({'placeholder': _(u'Confirm email')})
         if 'password1' in self.fields:
             self.fields['password1'].widget.attrs.update({'placeholder': _(u'Enter password')})
         if 'password2' in self.fields:
