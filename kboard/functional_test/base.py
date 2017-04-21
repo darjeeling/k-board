@@ -79,7 +79,7 @@ class FunctionalTest(StaticLiveServerTestCase):
         create_post_button.click()
 
     def click_submit_button(self):
-        submit_button = self.browser.find_element_by_class_name('post-submit-button')
+        submit_button = self.browser.find_element_by_id('submit_button')
         submit_button.click()
 
     def check_for_row_in_list_table(self, id, row_text):
